@@ -1,0 +1,68 @@
+---
+const { title = 'Assorti.ai — Curated AI, Sorted for You', description = 'AI без суеты — готовые рецепты под задачи', ogImage = '/img/og.png' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+      :root{ --teal:#3AAFA9; --coral:#FF6B6B; --navy:#2A2D50; --bg:#F8F9FA; }
+      *{box-sizing:border-box}
+      body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#111}
+      a{color:var(--teal);text-decoration:none}
+      header{padding:20px 24px;background:white;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
+      .wrap{max-width:1100px;margin:0 auto}
+      nav a{margin-right:16px;font-weight:600}
+      .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--teal);color:#fff;font-weight:700}
+      .btn.secondary{background:white;color:var(--teal);border:2px solid var(--teal)}
+      footer{margin-top:64px;padding:32px;background:white;border-top:1px solid #eee;color:#555}
+      .grid{display:grid;gap:16px}
+      .cards{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+      .card{background:white;border:1px solid #eee;border-radius:14px;overflow:hidden}
+      .card .p{padding:16px}
+      .tag{display:inline-block;background:#eef6f6;color:#226b67;border-radius:999px;padding:4px 10px;margin-right:6px;font-size:12px}
+      .hero{padding:48px 0}
+      h1{font-size:36px;margin:0 0 12px 0}
+      h2{margin-top:28px}
+      .copy{background:#f6f6f8;border:1px solid #ececf1;border-radius:10px;padding:12px}
+      .muted{color:#666}
+    </style>
+    <!-- Google Analytics placeholder -->
+    <script>
+      // Replace with your GA4 tag if needed
+      // window.dataLayer = window.dataLayer || [];
+      // function gtag(){dataLayer.push(arguments);}
+      // gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;">
+        <a href="/" style="display:flex;gap:10px;align-items:center">
+          <div style="width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--teal),var(--coral));display:grid;place-items:center;color:white;font-weight:900">A</div>
+          <strong style="color:var(--navy)">Assorti.ai</strong>
+        </a>
+        <nav>
+          <a href="/recipes">Recipes</a>
+          <a href="/about">About</a>
+          <a href="/disclosure">Disclosure</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>© {new Date().getFullYear()} Assorti.ai · Curated AI, Sorted for You</div>
+      </div>
+    </footer>
+  </body>
+</html>

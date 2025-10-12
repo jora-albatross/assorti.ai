@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import RecipeCard from "../../components/RecipeCard.astro";
+const recipes = await getCollection('recipes');
+---
+<Layout title="AI Recipes — Assorti.ai">
+  <h1>AI Recipes</h1>
+  <p class="muted">Готовые сценарии для видео, изображений, текста, аудио и бизнеса.</p>
+  <div class="grid cards" style="margin-top:16px">
+    {recipes.map(r => <RecipeCard recipe={r} />)}
+  </div>
+</Layout>

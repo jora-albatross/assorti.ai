@@ -1,0 +1,24 @@
+---
+title: "YouTube Shorts за 10 минут"
+summary: "Сценарий → озвучка → видео: ChatGPT + ElevenLabs + Runway."
+category: "video"
+eta: 10
+preview: "/img/shorts-demo.png"
+outcome:
+  - "Готовый вертикальный ролик 9:16"
+  - "Субтитры и чёткий хук"
+tools:
+  - { name: "ChatGPT", url: "https://chat.openai.com" }
+  - { name: "ElevenLabs", url: "https://elevenlabs.io", affiliate_url: "https://elevenlabs.io/?via=assorti" }
+  - { name: "Runway ML", url: "https://runwayml.com", affiliate_url: "https://runwayml.com?ref=assorti" }
+steps:
+  - { title: "Сценарий", description: "Сгенерируй 80–120 слов с 3-х шаговым хук-структурой." }
+  - { title: "Озвучка", description: "Синтезируй голос в ElevenLabs (тон энергичный, скорость 1.05)." }
+  - { title: "Видео", description: "Импортируй аудио в Runway, добавь авто-сабтайтлы, экспорт 1080x1920." }
+prompts:
+  - { label: "Сценарий Shorts", content: "Напиши сценарий для 30–40с ролика по теме: {тема}. Структура: хук (1 фраза) → 3 факта → CTA." }
+youtube_id: "b0KU4cJgj6g"
+cost_note: "Free tiers доступны; апгрейд Runway Pro ~$15/мес"
+---
+
+**Совет:** используй первые 2 секунды для сильного визуального хука (сравнение, шок-цифра, before/after).
