@@ -19,7 +19,7 @@ const title = `${d.title} — Assorti.ai`;
   <h1 style="margin-top:8px">{d.title}</h1>
   <p class="muted">{d.summary}</p>
 
-  <div class="grid" style="grid-template-columns: 1.2fr 0.8fr; gap:24px; margin-top:16px">
+  <div class="two-col" style="margin-top:16px">
     <div>
       {d.preview && <img src={d.preview} alt={d.title} width="100%" style="border-radius:12px;border:1px solid #eee" />}
       <h2>Что получится</h2>
@@ -53,7 +53,7 @@ const title = `${d.title} — Assorti.ai`;
         </div>
       </>}
     </div>
-    <aside>
+    <aside class="sidebar">
       <div class="card">
         <div class="p">
           <h3>Инструменты</h3>
