@@ -5,14 +5,15 @@ import RecipeCard from "../components/RecipeCard.astro";
 const recipes = (await getCollection('recipes')).slice(0,3);
 ---
 <Layout title="Assorti.ai — AI без суеты" description="Готовые AI-рецепты для видео, текста, изображений и бизнеса">
-  <section class="hero">
-    <h1>AI без суеты — готовые рецепты под твои задачи</h1>
-    <p class="muted">Выбирай задачу → следуй 3–5 шагам → получай результат за 5–10 минут.</p>
-    <div style="display:flex;gap:12px;margin-top:16px">
-      <a class="btn" href="/recipes">Explore Recipes</a>
-      <a class="btn secondary" href="/about">How it works</a>
-    </div>
-  </section>
+ <section class="hero">
+  <h1>AI без суеты — готовые рецепты под твои задачи</h1>
+  <p>Выбирай задачу → следуй 3–5 шагам → получай результат за 5–10 минут. Курация инструментов, промпты и видео — всё на одной странице.</p>
+  <div style="display:flex;gap:12px;margin-top:16px">
+    <a class="btn" href="/recipes">Explore Recipes</a>
+    <a class="btn secondary" href="/about">How it works</a>
+  </div>
+</section>
+
 
   <section>
     <h2>Рецепты недели</h2>
