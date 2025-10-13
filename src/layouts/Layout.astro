@@ -1,105 +1,38 @@
 ---
-const {
-  title = 'Assorti.ai — Curated AI, Sorted for You',
-  description = 'AI без суеты — готовые рецепты под задачи',
-  ogImage = '/img/og.png'
-} = Astro.props;
+import "../styles/tailwind.css";
+const { title="Assorti.ai — Curated AI, Sorted for You", description="AI без суеты — готовые рецепты под задачи", ogImage="/img/og.png" } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={description} />
+    <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:image" content={ogImage} />
     <link rel="icon" href="/favicon.ico" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    <style>
-      :root{
-        --teal:#3AAFA9; --coral:#FF6B6B; --navy:#2A2D50; --bg:#F7F8FA; --ink:#111115;
-        --card:#ffffff; --line:#ECEFF3; --muted:#657083;
-        --radius:16px; --shadow:0 8px 24px rgba(20,25,40,.08);
-      }
-      *{box-sizing:border-box}
-      html,body{margin:0;padding:0}
-      body{
-        font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-        color:var(--ink); background:linear-gradient(180deg,#ffffff, #f9fbfd 40%, #f6f9fb);
-      }
-      a{color:var(--teal);text-decoration:none}
-      .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-      header{
-        position:sticky;top:0;z-index:10;background:rgba(255,255,255,.9);
-        backdrop-filter:saturate(140%) blur(8px);
-        border-bottom:1px solid var(--line);
-      }
-      .header-inner{padding:14px 0;display:flex;align-items:center;justify-content:space-between}
-      nav a{margin-left:18px;font-weight:600;color:#2a2d50b3}
-      nav a:hover{color:var(--navy)}
-      .logo{
-        width:30px;height:30px;border-radius:9px;
-        background:linear-gradient(135deg,var(--teal),var(--coral));
-        display:grid;place-items:center;color:white;font-weight:900
-      }
-      .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--teal);color:#fff;font-weight:700;box-shadow:var(--shadow)}
-      .btn.secondary{background:#fff;color:var(--teal);border:2px solid var(--teal);box-shadow:none}
-      .hero{
-        padding:64px 0 40px;
-        background:
-          radial-gradient(1000px 400px at 20% -10%, rgba(58,175,169,.10), transparent 60%),
-          radial-gradient(1000px 400px at 80% -20%, rgba(255,107,107,.10), transparent 60%);
-      }
-      .hero h1{
-        font-family:"Playfair Display",serif;
-        font-size:42px;line-height:1.1;margin:0 0 10px;color:var(--navy)
-      }
-      .hero p{color:var(--muted);max-width:700px;margin:0 0 18px}
-      .section{padding:28px 0}
-      h2{margin:0 0 12px;font-size:22px;color:#1f2430}
-      .grid{display:grid;gap:18px}
-      .cards{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-      .card{
-        background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
-        transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-      }
-      .card:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:#e2e8f0}
-      .card img{display:block;aspect-ratio:16/10;object-fit:cover;background:#eef2f7}
-      .p{padding:16px}
-      .tag{display:inline-block;background:#eef6f6;color:#206b67;border:1px solid #d9efee;border-radius:999px;padding:4px 10px;margin-right:6px;font-size:12px}
-      .muted{color:var(--muted)}
-      footer{margin-top:56px;padding:28px 0;background:#fff;border-top:1px solid var(--line);color:#5d6880}
-      /* Recipe layout */
-      .two-col{display:grid;gap:24px;grid-template-columns:1.2fr .8fr}
-      @media (max-width: 880px){ .two-col{grid-template-columns:1fr} }
-      .copy{background:#f6f7fb;border:1px solid #e9edf4;border-radius:12px;padding:12px}
-      .sidebar .card{box-shadow:none}
-    </style>
   </head>
-  <body>
-    <header>
-      <div class="wrap header-inner">
-        <a href="/" style="display:flex;gap:10px;align-items:center">
-          <div class="logo">A</div>
-          <strong style="color:var(--navy)">Assorti.ai</strong>
+  <body class="bg-white text-ink">
+    <header class="sticky top-0 z-20 bg-white/85 backdrop-blur border-b border-line">
+      <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal to-coral grid place-items-center text-white font-black">A</div>
+          <strong class="text-navy">Assorti.ai</strong>
         </a>
-        <nav>
-          <a href="/recipes">Recipes</a>
-          <a href="/about">About</a>
-          <a href="/disclosure">Disclosure</a>
+        <nav class="text-navy/70 font-semibold space-x-5">
+          <a href="/recipes" class="hover:text-navy">Recipes</a>
+          <a href="/about" class="hover:text-navy">About</a>
+          <a href="/disclosure" class="hover:text-navy">Disclosure</a>
         </nav>
       </div>
     </header>
-    <main class="wrap">
+
+    <main class="max-w-6xl mx-auto px-5">
       <slot />
     </main>
-    <footer>
-      <div class="wrap">© {new Date().getFullYear()} Assorti.ai · Curated AI, Sorted for You</div>
+
+    <footer class="mt-16 border-t border-line">
+      <div class="max-w-6xl mx-auto px-5 py-6 text-slate-600">© {new Date().getFullYear()} Assorti.ai · Curated AI, Sorted for You</div>
     </footer>
   </body>
 </html>
