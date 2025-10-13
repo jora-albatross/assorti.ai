@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Лёгкий брендовый фон для hero */
+:root {
+  --grad:
+    radial-gradient(800px 300px at 10% -10%, rgba(58,175,169,.12), transparent 60%),
+    radial-gradient(800px 300px at 90% -20%, rgba(255,107,107,.12), transparent 60%);
+}
