@@ -1,13 +1,10 @@
 /site.webmanifest
-  Content-Type: application/manifest+json
-  Access-Control-Allow-Origin: *
-
-/service-worker.js
-  Cache-Control: no-cache
-
-/site.webmanifest
   Content-Type: application/manifest+json; charset=utf-8
   Cache-Control: public, max-age=3600
+
+/service-worker.js
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: no-cache
 
 /favicon.ico
   Content-Type: image/x-icon
@@ -34,5 +31,9 @@
   Cache-Control: public, max-age=604800, immutable
 
 /img/logo.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=604800, immutable
+
+/img/og.png
   Content-Type: image/png
   Cache-Control: public, max-age=604800, immutable
