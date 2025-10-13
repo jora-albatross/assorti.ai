@@ -1,20 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{astro,js,ts,mdx}"],
+  content: [
+    "./src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte}",
+    "./public/**/*.html"
+  ],
   theme: {
     extend: {
       colors: {
-        teal: "#3AAFA9",
-        coral: "#FF6B6B",
-        navy: "#2A2D50",
-        ink: "#111115",
-        line: "#ECEFF3",
+        primary: "#5B6CFF",        // основной tech-синий
+        secondary: "#1E293B",      // тёмный navy для текста
+        accent: "#FF6B6B",         // коралловый для кнопок
+        background: "#FFFFFF",     // базовый фон
+        gradientStart: "#5B6CFF",  // начало градиента
+        gradientEnd: "#9B5BFF"     // конец градиента
       },
-      boxShadow: {
-        soft: "0 12px 30px rgba(20,25,40,.10)",
-      },
-      borderRadius: { xl: "16px" },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui"],
+        display: ["Playfair Display", "serif"]
+      }
     },
   },
   plugins: [],
-};
+}
