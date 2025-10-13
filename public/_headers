@@ -6,6 +6,11 @@
   Content-Type: application/javascript; charset=utf-8
   Cache-Control: no-cache
 
+/offline.html
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+
 /favicon.ico
   Content-Type: image/x-icon
   Cache-Control: public, max-age=604800, immutable
