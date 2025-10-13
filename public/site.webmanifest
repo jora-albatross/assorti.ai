@@ -3,8 +3,8 @@
   "short_name": "Assorti",
   "description": "Curated AI recipes — ready-to-use workflows for creators, marketers and entrepreneurs.",
   "icons": [
-    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable any" },
-    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable any" },
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
     { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png", "purpose": "any" },
     { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
     { "src": "/img/logo.png", "sizes": "1024x1024", "type": "image/png", "purpose": "maskable any" }
