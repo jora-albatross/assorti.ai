@@ -1,8 +1,4 @@
 ---
-/**
- * Props (опционально):
- * <Hero titleLine1="..." titleLine2="..." subtitle="..." />
- */
 const {
   titleLine1 = "Curated AI Recipes,",
   titleLine2 = "Ready to Ship",
@@ -16,12 +12,13 @@ const {
 <section class="relative overflow-hidden pt-16 pb-14">
   <div class="max-w-6xl mx-auto px-5 grid items-center gap-10 md:grid-cols-2">
 
-    <!-- ЛЕВАЯ КОЛОНКА -->
-    <div>
-      <!-- ЖЁСТКОЕ ДВУСТРОЧНОЕ ЗАГЛАВИЕ -->
-      <h1 class="font-display leading-tight text-secondary text-4xl md:text-6xl">
+    <!-- ЛЕВАЯ КОЛОНКА: текст -->
+    <div class="animate-hero-in">
+      <!-- Чуть больше line-height, чтобы не резало «y» -->
+      <h1 class="font-display text-secondary text-4xl md:text-6xl leading-[1.12] md:leading-[1.08]">
         <span class="block">{titleLine1}</span>
-        <span class="block bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent">
+        <!-- микро-зазор снизу на всякий случай -->
+        <span class="block pb-[2px] bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent">
           {titleLine2}
         </span>
       </h1>
@@ -32,7 +29,7 @@ const {
 
       <div class="mt-8 flex items-center gap-3">
         <a href={primaryHref}
-           class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-semibold shadow-sm hover:opacity-90 transition">
+           class="btn-primary inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-semibold shadow-sm hover:opacity-90 transition">
           {primaryLabel}
         </a>
         <a href={secondaryHref}
@@ -43,7 +40,7 @@ const {
     </div>
 
     <!-- ПРАВАЯ КОЛОНКА: иллюстрация узлов/связей -->
-    <div class="relative">
+    <div class="relative animate-hero-in-delay">
       <div class="pointer-events-none absolute -inset-8 rounded-[36px] blur-3xl opacity-60"
            style="background: radial-gradient(120px 120px at 20% 30%, rgba(91,108,255,0.20), transparent 60%),
                    radial-gradient(160px 160px at 70% 60%, rgba(155,91,255,0.18), transparent 60%),
@@ -82,7 +79,6 @@ const {
             <circle cx="260" cy="210" r="11" fill="url(#nodeGrad)" class="motion-safe:animate-float" />
             <circle cx="400" cy="240" r="10" fill="url(#nodeGrad)" class="motion-safe:animate-float" />
             <circle cx="320" cy="80"  r="9"  fill="url(#nodeGrad)" class="motion-safe:animate-float" />
-
             <circle cx="70"  cy="90"  r="6"  fill="#5B6CFF" class="motion-safe:animate-float-fast" />
             <circle cx="450" cy="140" r="6"  fill="#9B5BFF" class="motion-safe:animate-float-fast" />
             <circle cx="120" cy="230" r="6"  fill="#5B6CFF" class="motion-safe:animate-float-fast" />
@@ -108,43 +104,43 @@ const {
 </section>
 
 <style>
-  @keyframes float {
-    0% { transform: translateY(0px) }
-    50% { transform: translateY(-6px) }
-    100% { transform: translateY(0px) }
+  /* Появление блоков */
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
-  @keyframes floatSlow {
-    0% { transform: translateY(0px) }
-    50% { transform: translateY(-4px) }
-    100% { transform: translateY(0px) }
+  .animate-hero-in       { animation: heroIn .7s ease-out both; }
+  .animate-hero-in-delay { animation: heroIn .7s ease-out .12s both; }
+
+  /* Hover-пульс для primary */
+  @keyframes softPulse {
+    0%   { transform: scale(1);   box-shadow: 0 6px 14px rgba(255,107,107,.30); }
+    50%  { transform: scale(1.025); box-shadow: 0 10px 22px rgba(255,107,107,.35); }
+    100% { transform: scale(1);   box-shadow: 0 6px 14px rgba(255,107,107,.30); }
   }
-  @keyframes floatFast {
-    0% { transform: translateY(0px) }
-    50% { transform: translateY(-8px) }
-    100% { transform: translateY(0px) }
-  }
-  @keyframes breathe {
-    0% { transform: scale(1); opacity: 0.10; }
-    50% { transform: scale(1.06); opacity: 0.18; }
-    100% { transform: scale(1); opacity: 0.10; }
-  }
-  @keyframes graphPulse {
-    0%   { stroke-opacity: 0.35 }
-    50%  { stroke-opacity: 0.55 }
-    100% { stroke-opacity: 0.35 }
-  }
-  .animate-float       { animation: float 6s ease-in-out infinite; }
-  .animate-float-slow  { animation: floatSlow 7.5s ease-in-out infinite; }
-  .animate-float-fast  { animation: floatFast 5s ease-in-out infinite; }
-  .animate-breathe     { animation: breathe 7s ease-in-out infinite; }
+  .btn-primary:hover { animation: softPulse .9s ease-out; }
+
+  /* Плавающие узлы */
+  @keyframes float { 0% {transform:translateY(0)} 50% {transform:translateY(-6px)} 100% {transform:translateY(0)} }
+  @keyframes floatSlow { 0% {transform:translateY(0)} 50% {transform:translateY(-4px)} 100% {transform:translateY(0)} }
+  @keyframes floatFast { 0% {transform:translateY(0)} 50% {transform:translateY(-8px)} 100% {transform:translateY(0)} }
+  @keyframes breathe { 0% {transform:scale(1);opacity:.10} 50% {transform:scale(1.06);opacity:.18} 100% {transform:scale(1);opacity:.10} }
+  @keyframes graphPulse { 0% {stroke-opacity:.35} 50% {stroke-opacity:.55} 100% {stroke-opacity:.35} }
+
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-float-slow { animation: floatSlow 7.5s ease-in-out infinite; }
+  .animate-float-fast { animation: floatFast 5s ease-in-out infinite; }
+  .animate-breathe { animation: breathe 7s ease-in-out infinite; }
   .animate-graph-pulse { animation: graphPulse 4.5s ease-in-out infinite; }
+
+  /* Уважение к reduced-motion */
   @media (prefers-reduced-motion: reduce) {
-    .animate-float,
-    .animate-float-slow,
-    .animate-float-fast,
-    .animate-breathe,
-    .animate-graph-pulse {
+    .animate-hero-in, .animate-hero-in-delay,
+    .btn-primary:hover,
+    .animate-float, .animate-float-slow, .animate-float-fast,
+    .animate-breathe, .animate-graph-pulse {
       animation: none !important;
+      transform: none !important;
     }
   }
 </style>
