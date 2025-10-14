@@ -25,14 +25,14 @@
 Чтобы жёстко управлять разбиением, есть 2 варианта:
 
 🔹 Вариант 1: <br />
-Просто вставить перенос строки в тексте:
+## Просто вставить перенос строки в тексте:
     <h1 class="text-5xl font-display font-bold leading-tight">
       Curated AI Recipes,<br />
       <span class="text-gradient">Ready to Ship</span>
     </h1>
 
 🔹 Вариант 2: 
-сделать каждую часть в отдельном блоке:
+## сделать каждую часть в отдельном блоке:
     <h1 class="text-5xl font-display font-bold leading-tight">
       <span>Curated AI Recipes,</span>
       <span class="block text-gradient">Ready to Ship</span>
