@@ -4,15 +4,19 @@ module.exports = {
     "./src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte}",
     "./public/**/*.html"
   ],
+  safelist: [
+    "text-secondary", "bg-background", "bg-accent",
+    "from-gradientStart", "to-gradientEnd"
+  ],
   theme: {
     extend: {
       colors: {
-        primary: "#5B6CFF",        // основной tech-синий
-        secondary: "#1E293B",      // тёмный navy для текста
-        accent: "#FF6B6B",         // коралловый для кнопок
-        background: "#FFFFFF",     // базовый фон
-        gradientStart: "#5B6CFF",  // начало градиента
-        gradientEnd: "#9B5BFF"     // конец градиента
+        primary: "#5B6CFF",
+        secondary: "#1E293B",
+        accent: "#FF6B6B",
+        background: "#FFFFFF",
+        gradientStart: "#5B6CFF",
+        gradientEnd: "#9B5BFF"
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
