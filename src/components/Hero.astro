@@ -1,0 +1,22 @@
+---
+const { title = "Curated AI Recipes, Ready to Ship", subtitle = "Playbooks that actually save time. No fluff — just repeatable workflows." } = Astro.props;
+---
+<section class="relative pt-16 pb-14">
+  <div class="max-w-5xl mx-auto px-5 text-center">
+    <h1 class="font-display text-4xl md:text-6xl leading-tight">
+      {title.split("Ready to Ship")[0]}
+      <span class="bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent">Ready to Ship</span>
+    </h1>
+    <p class="mt-5 text-lg md:text-xl text-secondary/80">
+      {subtitle}
+    </p>
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <a href="/recipes" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-semibold shadow-sm hover:opacity-90 transition">
+        Explore Recipes
+      </a>
+      <a href="/about" class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-300 text-secondary hover:bg-slate-50 transition">
+        How it works
+      </a>
+    </div>
+  </div>
+</section>
