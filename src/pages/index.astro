@@ -1,43 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import RecipeCard from "../components/RecipeCard.astro";
+import { getCollection } from "astro:content";
 
 const title = "Assorti.ai — Curated AI, Sorted for You";
 const description = "Ready-to-use AI recipes for creators, marketers and entrepreneurs.";
+
+// подгружаем все рецепты (можешь отсортировать как нужно)
+const recipes = await getCollection("recipes");
+// пример сортировки по полю 'order' (если есть):
+// const recipes = (await getCollection("recipes")).sort((a,b)=>(a.data.order??999)-(b.data.order??999));
 ---
 
 <Layout {title} {description}>
+  <Hero />
 
-<Hero />
-
-    <!-- gradient card (пример из п.4) -->
-    <div class="max-w-5xl mx-auto mt-12 px-5">
-      <div class="rounded-2xl p-6 md:p-8 text-white bg-gradient-to-r from-gradientStart to-gradientEnd shadow-lg">
-        <p class="text-lg md:text-xl">Ship your first AI workflow in 15 minutes.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREVIEW GRID (простейший) -->
   <section class="py-10">
-    <div class="max-w-6xl mx-auto px-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="border border-slate-200 rounded-2xl p-5 hover:shadow-sm transition">
-        <h3 class="font-semibold text-secondary">YouTube Shorts in 10 min</h3>
-        <p class="mt-2 text-secondary/70 text-sm">Script → VO → captions → export.</p>
-        <a href="/recipes/youtube-shorts-10-min" class="mt-4 inline-block text-primary hover:underline">Open</a>
-      </article>
-
-      <article class="border border-slate-200 rounded-2xl p-5 hover:shadow-sm transition">
-        <h3 class="font-semibold text-secondary">Podcast Intro (15 min)</h3>
-        <p class="mt-2 text-secondary/70 text-sm">Intro script + music bed + mixdown.</p>
-        <a href="/recipes/podcast-intro-15-min" class="mt-4 inline-block text-primary hover:underline">Open</a>
-      </article>
-
-      <article class="border border-slate-200 rounded-2xl p-5 hover:shadow-sm transition">
-        <h3 class="font-semibold text-secondary">Cover for YouTube (Canva)</h3>
-        <p class="mt-2 text-secondary/70 text-sm">Thumbnail that actually converts.</p>
-        <a href="/recipes/cover-youtube-canva" class="mt-4 inline-block text-primary hover:underline">Open</a>
-      </article>
+    <div class="max-w-6xl mx-auto px-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {recipes.map((r) => <RecipeCard recipe={r} />)}
     </div>
   </section>
 </Layout>
