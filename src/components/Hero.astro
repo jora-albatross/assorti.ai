@@ -1,4 +1,7 @@
 ---
+import ButtonPrimary from "../components/ButtonPrimary.astro";
+import ButtonSecondary from "../components/ButtonSecondary.astro";
+---
 const {
   titleLine1 = "Curated AI Recipes,",
   titleLine2 = "Ready to Ship",
@@ -27,15 +30,11 @@ const {
         {subtitle}
       </p>
 
-      <div class="mt-8 flex items-center gap-3">
-        <a href={primaryHref}
-           class="btn-primary inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-semibold shadow-sm hover:opacity-90 transition">
-          {primaryLabel}
-        </a>
-        <a href={secondaryHref}
-           class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-300 text-secondary hover:bg-slate-50 transition">
-          {secondaryLabel}
-        </a>
+        <div class="mt-8 flex items-center gap-3">
+            <ButtonPrimary href={primaryHref}>{primaryLabel}</ButtonPrimary>
+            <ButtonSecondary href={secondaryHref}>{secondaryLabel}</ButtonSecondary>
+        </div>
+
       </div>
     </div>
 
@@ -143,4 +142,54 @@ const {
       transform: none !important;
     }
   }
+/* Градиентный текст */
+.gradient-text{
+  background-image: linear-gradient(90deg, var(--c1,#5B6CFF), var(--c2,#9B5BFF));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+/* Shine эффект (ползущая светлая полоска) */
+.shine-trigger{
+  --shine-size: 120px;
+  --shine-color: rgba(255,255,255,.35);
+  --shine-rot: 20deg;
+  --shine-speed: 1.2s;
+}
+
+.shine-trigger::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(var(--shine-rot),
+      transparent 0%,
+      transparent 45%,
+      var(--shine-color) 50%,
+      transparent 55%,
+      transparent 100%);
+  transform: translateX(-140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Активируем на hover (и на фокус внутри) */
+.shine-trigger:hover::after,
+.shine-trigger:focus-visible::after{
+  animation: shine var(--shine-speed) ease-out forwards;
+  opacity: 1;
+}
+
+@keyframes shine{
+  from { transform: translateX(-140%); }
+  to   { transform: translateX(140%); }
+}
+
+/* respect reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  .shine-trigger::after{ display:none !important; }
+}
+
 </style>
