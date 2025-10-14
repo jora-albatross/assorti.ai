@@ -1,16 +1,54 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-const { recipe }:{ recipe: CollectionEntry<'recipes'> } = Astro.props;
+import type { CollectionEntry } from "astro:content";
+
+const { recipe }: { recipe: CollectionEntry<"recipes"> } = Astro.props;
 const d = recipe.data;
+
+// Фолбэк-картинка, если превью нет
+const imageSrc = d.preview ?? "/img/placeholder.png";
+const imageAlt = d.title ?? "Recipe preview";
+const href = `/recipes/${recipe.slug}`;
 ---
-<a class="card" href={`/recipes/${recipe.slug}`}>
-  <img src={d.preview ?? '/img/placeholder.png'} alt={d.title} loading="lazy" />
-  <div class="p">
-    <div style="display:flex;gap:6px;flex-wrap:wrap">
-      <span class="tag">{d.category}</span>
-      <span class="tag">{d.eta} min</span>
+
+<a href={href} class="group block border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition">
+  <!-- Картинка -->
+  <div class="aspect-[16/9] overflow-hidden bg-slate-100">
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      loading="lazy"
+      class="w-full h-full object-cover group-hover:scale-[1.02] transition"
+    />
+  </div>
+
+  <!-- Текст -->
+  <div class="p-5">
+    <div class="flex flex-wrap gap-2">
+      {d.category && (
+        <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-slate-100 text-secondary/80">
+          {d.category}
+        </span>
+      )}
+      {d.eta && (
+        <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-slate-100 text-secondary/80">
+          {d.eta} min
+        </span>
+      )}
     </div>
-    <h3 style="margin:10px 0 6px;font-size:18px;color:#1d2430">{d.title}</h3>
-    <p class="muted" style="min-height:2.6em;margin:0">{d.summary}</p>
+
+    <h3 class="mt-3 text-[18px] font-semibold text-secondary">
+      {d.title}
+    </h3>
+
+    {d.summary && (
+      <p class="mt-1 text-sm text-secondary/70 line-clamp-2">
+        {d.summary}
+      </p>
+    )}
+
+    <span class="mt-4 inline-block text-primary text-sm font-medium group-hover:underline">
+      Open
+    </span>
   </div>
 </a>
+
