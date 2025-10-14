@@ -1,127 +1,58 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-const recipes = await getCollection("recipes");
-const topPicks = recipes.slice(0, 6);
-const featured = recipes[0];
+import Layout from "../../layouts/Layout.astro";
+const title = "Assorti.ai — Curated AI, Sorted for You";
+const description = "Ready-to-use AI recipes for creators, marketers and entrepreneurs.";
 ---
-<Layout title="Assorti.ai — Curated AI recipes" description="Ready-to-use AI workflows for creators, marketers and entrepreneurs.">
+
+<Layout {title} {description}>
   <!-- HERO -->
-  <section class="py-16" style="background:var(--grad)">
-    <h1 class="font-['Playfair_Display'] text-4xl md:text-5xl text-navy leading-tight">
-      Your curated AI recipes — results in minutes
-    </h1>
-    <p class="mt-3 max-w-2xl text-slate-600">
-      Pick a task → follow 3–5 steps → get output in 5–10 minutes.
-      Each recipe includes prompts, tools and a quick video.
-    </p>
-    <div class="mt-5 flex gap-3">
-      <a href="/recipes" class="inline-flex items-center px-5 py-3 rounded-xl bg-teal text-white font-bold shadow-soft">
-        Explore Recipes
-      </a>
-      <a href="#how-it-works" class="inline-flex items-center px-5 py-3 rounded-xl border-2 border-teal text-teal font-bold">
-        See how
-      </a>
-    </div>
-  </section>
+  <section class="relative pt-16 pb-14">
+    <div class="max-w-5xl mx-auto px-5 text-center">
+      <h1 class="font-display text-4xl md:text-6xl leading-tight text-secondary">
+        Curated AI Recipes, <span class="bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent">Ready to Ship</span>
+      </h1>
+      <p class="mt-5 text-lg md:text-xl text-secondary/80">
+        Playbooks that actually save time. No fluff — just repeatable workflows.
+      </p>
 
-  <!-- TOP PICKS -->
-  <section class="py-8">
-    <div class="flex items-center justify-between mb-3">
-      <h2 class="text-xl font-semibold">Top picks</h2>
-      <a href="/recipes" class="text-teal font-semibold">View all →</a>
-    </div>
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {topPicks.map((r) => (
-        <a href={`/recipes/${r.slug}`} class="group border border-line rounded-xl overflow-hidden bg-white hover:shadow-soft transition">
-          <img src={r.data.preview ?? "/img/placeholder.png"} alt={r.data.title} class="aspect-[16/10] w-full object-cover bg-slate-100" loading="lazy" />
-          <div class="p-4">
-            <div class="flex gap-2 mb-2">
-              <span class="px-2 py-0.5 rounded-full text-xs bg-teal/10 text-teal border border-teal/20">{r.data.category}</span>
-              <span class="px-2 py-0.5 rounded-full text-xs bg-slate-100 text-slate-700 border border-line">{r.data.eta} min</span>
-            </div>
-            <h3 class="font-semibold group-hover:text-navy">{r.data.title}</h3>
-            <p class="text-slate-600 text-sm mt-1">{r.data.summary}</p>
-          </div>
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <a href="/recipes" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-semibold hover:opacity-90 transition">
+          Explore Recipes
         </a>
-      ))}
+        <a href="/about" class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-300 text-secondary hover:bg-slate-50 transition">
+          How it works
+        </a>
+      </div>
     </div>
-  </section>
 
-  <!-- FEATURED RECIPE -->
-  {featured && (
-    <section class="py-10">
-      <h2 class="text-xl font-semibold mb-3">Featured recipe</h2>
-      <div class="grid gap-6 md:grid-cols-[1.2fr,0.8fr] border border-line rounded-xl overflow-hidden bg-white">
-        <img src={featured.data.preview ?? "/img/placeholder.png"} alt={featured.data.title} class="w-full h-full object-cover bg-slate-100" loading="lazy" />
-        <div class="p-6">
-          <div class="flex gap-2 mb-2">
-            <span class="px-2 py-0.5 rounded-full text-xs bg-teal/10 text-teal border border-teal/20">{featured.data.category}</span>
-            <span class="px-2 py-0.5 rounded-full text-xs bg-slate-100 text-slate-700 border border-line">{featured.data.eta} min</span>
-          </div>
-          <h3 class="text-2xl font-semibold">{featured.data.title}</h3>
-          <p class="text-slate-600 mt-2">{featured.data.summary}</p>
-          <div class="mt-4 flex gap-3">
-            <a href={`/recipes/${featured.slug}`} class="inline-flex items-center px-5 py-3 rounded-xl bg-teal text-white font-bold shadow-soft">
-              Try this recipe
-            </a>
-            <a href="/recipes" class="inline-flex items-center px-5 py-3 rounded-xl border-2 border-teal text-teal font-bold">
-              Browse all
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- HOW IT WORKS -->
-  <section id="how-it-works" class="py-10">
-    <h2 class="text-xl font-semibold mb-3">How it works</h2>
-    <div class="grid gap-4 sm:grid-cols-3">
-      <div class="border border-line rounded-xl p-4 bg-white">
-        <h4 class="font-semibold">1) Pick a task</h4>
-        <p class="text-slate-600 text-sm mt-1">Video, text, image, audio or business task. Each recipe states time & cost.</p>
-      </div>
-      <div class="border border-line rounded-xl p-4 bg-white">
-        <h4 class="font-semibold">2) Follow 3–5 steps</h4>
-        <p class="text-slate-600 text-sm mt-1">Copy prompts, open tools, watch a 60–90s guide. Get a result fast.</p>
-      </div>
-      <div class="border border-line rounded-xl p-4 bg-white">
-        <h4 class="font-semibold">3) Monetize</h4>
-        <p class="text-slate-600 text-sm mt-1">Use affiliate links or buy a ready workflow pack to save time.</p>
+    <!-- gradient card (пример из п.4) -->
+    <div class="max-w-5xl mx-auto mt-12 px-5">
+      <div class="rounded-2xl p-6 md:p-8 text-white bg-gradient-to-r from-gradientStart to-gradientEnd shadow-lg">
+        <p class="text-lg md:text-xl">Ship your first AI workflow in 15 minutes.</p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- PREVIEW GRID (простейший) -->
   <section class="py-10">
-    <h2 class="text-xl font-semibold mb-3">FAQ</h2>
-    <div class="grid gap-4">
-      <div class="border border-line rounded-xl p-4 bg-white">
-        <h4 class="font-semibold">What is an “AI recipe”?</h4>
-        <p class="text-slate-600 text-sm mt-1">A curated workflow combining the best tools + prompts to complete a task in minutes.</p>
-      </div>
-      <div class="border border-line rounded-xl p-4 bg-white">
-        <h4 class="font-semibold">Do I need subscriptions?</h4>
-        <p class="text-slate-600 text-sm mt-1">Most recipes work on free tiers; we note costs and time estimates for transparency.</p>
-      </div>
-      <div class="border border-line rounded-xl p-4 bg-white">
-        <h4 class="font-semibold">Can I request a recipe?</h4>
-        <p class="text-slate-600 text-sm mt-1">Yes — join our Telegram and drop a request. We publish community favorites weekly.</p>
-      </div>
-    </div>
-  </section>
+    <div class="max-w-6xl mx-auto px-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="border border-slate-200 rounded-2xl p-5 hover:shadow-sm transition">
+        <h3 class="font-semibold text-secondary">YouTube Shorts in 10 min</h3>
+        <p class="mt-2 text-secondary/70 text-sm">Script → VO → captions → export.</p>
+        <a href="/recipes/youtube-shorts-10-min" class="mt-4 inline-block text-primary hover:underline">Open</a>
+      </article>
 
-  <!-- TELEGRAM CTA -->
-  <section class="py-10">
-    <div class="border border-line rounded-xl p-6 bg-white flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <div>
-        <h3 class="text-xl font-semibold">Join AI Profit Hub</h3>
-        <p class="text-slate-600 mt-1">Get weekly “Model of the Week” picks, bonuses and early access to new recipes.</p>
-      </div>
-      <a href="https://t.me/ai_profithub2050" target="_blank" rel="noopener" class="inline-flex items-center px-5 py-3 rounded-xl bg-teal text-white font-bold shadow-soft">
-        Open Telegram
-      </a>
+      <article class="border border-slate-200 rounded-2xl p-5 hover:shadow-sm transition">
+        <h3 class="font-semibold text-secondary">Podcast Intro (15 min)</h3>
+        <p class="mt-2 text-secondary/70 text-sm">Intro script + music bed + mixdown.</p>
+        <a href="/recipes/podcast-intro-15-min" class="mt-4 inline-block text-primary hover:underline">Open</a>
+      </article>
+
+      <article class="border border-slate-200 rounded-2xl p-5 hover:shadow-sm transition">
+        <h3 class="font-semibold text-secondary">Cover for YouTube (Canva)</h3>
+        <p class="mt-2 text-secondary/70 text-sm">Thumbnail that actually converts.</p>
+        <a href="/recipes/cover-youtube-canva" class="mt-4 inline-block text-primary hover:underline">Open</a>
+      </article>
     </div>
   </section>
 </Layout>
