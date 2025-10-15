@@ -1,0 +1,9 @@
+---
+const { href = "/", children } = Astro.props;
+const isActive = Astro.url.pathname === href || Astro.url.pathname.startsWith(href + "/");
+---
+<a href={href}
+   class={`px-1 transition font-semibold
+           ${isActive ? "text-primary" : "text-navy/70 hover:text-secondary"}`}>
+  {children}
+</a>
