@@ -1,0 +1,77 @@
+---
+const items = [
+  {
+    title: "Ship faster",
+    desc: "Ready-to-use playbooks. Less setup, more output.",
+    icon: "speed",
+  },
+  {
+    title: "Quality first",
+    desc: "Curated workflows that actually work and stack.",
+    icon: "shield",
+  },
+  {
+    title: "No fluff",
+    desc: "Only steps that matter. Reproducible, documented.",
+    icon: "wand",
+  },
+];
+---
+
+<section class="py-10">
+  <div class="max-w-6xl mx-auto px-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((it) => (
+      <article class="rounded-2xl border border-slate-200 bg-white/70 backdrop-blur p-6 hover:shadow-md transition">
+        <div class="flex items-start gap-4">
+          <div class="icon-box rounded-xl p-3">
+            {
+              it.icon === "speed" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 13a9 9 0 10-18 0 8.8 8.8 0 001.2 4.5h13.6A8.8 8.8 0 0021 13z" stroke="url(#g1)" stroke-width="1.6"/>
+                  <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#5B6CFF"/><stop offset="1" stop-color="#9B5BFF"/>
+                  </linearGradient></defs>
+                  <path d="M13 11l4-4" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="12" cy="13" r="2" fill="#5B6CFF"/>
+                </svg>
+              )
+            }
+            {
+              it.icon === "shield" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" stroke="url(#g2)" stroke-width="1.6" fill="none"/>
+                  <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#5B6CFF"/><stop offset="1" stop-color="#9B5BFF"/>
+                  </linearGradient></defs>
+                  <path d="M8.5 12.5l2.5 2.5L16 10" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )
+            }
+            {
+              it.icon === "wand" && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 20l12-12" stroke="url(#g3)" stroke-width="1.8" stroke-linecap="round"/>
+                  <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#5B6CFF"/><stop offset="1" stop-color="#9B5BFF"/>
+                  </linearGradient></defs>
+                  <path d="M16 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z" fill="#FF6B6B" opacity=".85"/>
+                </svg>
+              )
+            }
+          </div>
+          <div>
+            <h3 class="text-[17px] font-semibold text-secondary">{it.title}</h3>
+            <p class="mt-1 text-sm text-secondary/70">{it.desc}</p>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+.icon-box{
+  background: linear-gradient(135deg, rgba(91,108,255,.12), rgba(155,91,255,.10));
+  border: 1px solid rgba(15,23,42,.06);
+}
+</style>
