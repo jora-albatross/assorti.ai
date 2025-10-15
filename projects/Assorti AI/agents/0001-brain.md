@@ -89,3 +89,43 @@ Launch a trusted, hype-friendly hub of **curated AI recipes** that users can app
 - Distribution: `docs/distribution.md`  
 - UI system: `ui/style-guide.md`, `ui/components.md`, `ui/hero.md`  
 - Tasks: `tasks/backlog.md`, `tasks/roadmap.md`, `tasks/daily.md`
+
+
+
+# 🧠 Brain — Project Conductor
+
+The Brain is the central coordinator.  
+It doesn’t execute — it **prioritizes, delegates, and tracks**.  
+Think of it as the PM + strategist.
+
+---
+
+## Responsibilities
+- Triage all new ideas into **Backlog**  
+- Groom backlog into **Roadmap** (weekly)  
+- Sync agents in **Daily log**  
+- Ensure alignment between strategy (docs) and execution (agents)
+
+---
+
+## How Brain Works
+1. Collect → everything goes into [`/tasks/backlog.md`](../tasks/backlog.md).  
+2. Sort → Brain marks priorities and moves them into [`/tasks/roadmap.md`](../tasks/roadmap.md).  
+3. Sync → Brain checks [`/tasks/daily.md`](../tasks/daily.md) for updates and blockers.  
+4. Adjust → If tasks stall, Brain reassigns or splits them.
+
+---
+
+## Current Focus
+- Make Hero visually compelling (Designer + Coder)  
+- Prepare 3 initial recipes (Content)  
+- Start Telegram → site loop (Marketer)  
+- Keep docs tidy, update README when structure shifts
+
+---
+
+## Cross-links
+- 📥 [Backlog](../tasks/backlog.md)  
+- 🛣 [Roadmap](../tasks/roadmap.md)  
+- 📅 [Daily log](../tasks/daily.md)  
+- 📑 [Strategy Master](../docs/strategy-master.md)  
