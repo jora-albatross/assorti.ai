@@ -1,4 +1,4 @@
-# Agent 0004 — Coder
+# Agent 0004 — Coder 
 
 **Role:**  
 The Coder transforms ideas and designs into functional code on GitHub and Cloudflare Pages.  
