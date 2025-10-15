@@ -22,7 +22,7 @@ const {
   secondaryHref = "/about",
 } = Astro.props as Props;
 ---
-
+<!--
 <section class="relative overflow-hidden pt-16 pb-14">
   <div class="max-w-6xl mx-auto px-5 grid items-center gap-10 md:grid-cols-2">
     <!-- ЛЕВАЯ КОЛОНКА: текст -->
@@ -194,4 +194,65 @@ const {
       transform: none !important;
     }
   }
+</style>
+-->
+
+<section class="relative overflow-hidden pt-16 pb-14">
+  <div class="max-w-6xl mx-auto px-5 grid gap-10 md:grid-cols-2 items-center">
+    
+    <!-- ЛЕВАЯ КОЛОНКА -->
+    <div class="col-span-1 min-w-0 relative z-10 appear">
+      <h1 class="font-display text-4xl md:text-6xl leading-[1.12] md:leading-[1.08] tracking-tight max-w-[22ch]">
+        Curated AI Recipes, <br/>
+        <span class="bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent shine-trigger">
+          Ready to Ship
+        </span>
+      </h1>
+      <p class="mt-6 text-lg text-slate-600 max-w-xl">
+        Playbooks that actually save time. No fluff — just repeatable workflows.
+      </p>
+      <div class="mt-6 flex gap-4">
+        <a href="/recipes" class="px-5 py-3 rounded-lg bg-accent text-white font-semibold hover:shadow-lg transition">
+          Explore Recipes
+        </a>
+        <a href="/about" class="px-5 py-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition">
+          How it works
+        </a>
+      </div>
+    </div>
+
+    <!-- ПРАВАЯ КОЛОНКА -->
+    <div class="col-span-1 min-w-0 relative z-0 appear-delay">
+      <!-- твоя иллюстрация -->
+      <svg><!-- SVG вставь сюда --></svg>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.appear { animation: heroIn .6s ease-out both; }
+.appear-delay { animation: heroIn .6s ease-out .12s both; }
+
+/* shine на заголовке */
+.shine-trigger {
+  position: relative;
+  display: inline-block;
+}
+.shine-trigger::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+  transform: translateX(-100%);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
 </style>
