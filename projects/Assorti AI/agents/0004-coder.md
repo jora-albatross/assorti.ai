@@ -29,3 +29,26 @@ The Coder reports technical limitations back to the Brain, so strategy stays rea
 - Add 404.astro and error boundaries.
 - Prepare CMS/data integration strategy (Markdown or headless CMS).
 - Set up ESLint + Prettier for clean commits.
+
+
+---
+
+## Workflow
+1) Pull specs from [`Brain`](0001-brain.md) and UI from [`Designer`](0003-designer.md).  
+2) Implement as components (Astro/Tailwind), keep PRs small and descriptive.  
+3) Maintain PWA/manifest/icons and Cloudflare Pages build health.  
+4) Record changes in [`Daily`](../tasks/daily.md); technical debt / ideas → [`Backlog`](../tasks/backlog.md).
+
+## Engineering Standards
+- ESLint + Prettier (format on commit)
+- Accessible HTML & semantic headings
+- Performant defaults (lazy images, min JS)
+- Clear commit messages: `feat(ui): …`, `fix(build): …`
+
+## Cross-links
+- 🧠 [Brain](0001-brain.md)
+- 🎨 [Designer](0003-designer.md)
+- ✍️ [Content](0005-content.md)
+- 📥 [Backlog](../tasks/backlog.md)
+- 🛣 [Roadmap](../tasks/roadmap.md)
+- 📅 [Daily](../tasks/daily.md)
