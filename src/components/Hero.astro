@@ -1,7 +1,17 @@
 ---
 import ButtonPrimary from "../components/ButtonPrimary.astro";
 import ButtonSecondary from "../components/ButtonSecondary.astro";
----
+
+interface Props {
+  titleLine1?: string;
+  titleLine2?: string;
+  subtitle?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
 const {
   titleLine1 = "Curated AI Recipes,",
   titleLine2 = "Ready to Ship",
@@ -10,19 +20,18 @@ const {
   primaryHref = "/recipes",
   secondaryLabel = "How it works",
   secondaryHref = "/about",
-} = Astro.props;
+} = Astro.props as Props;
 ---
+
 <section class="relative overflow-hidden pt-16 pb-14">
   <div class="max-w-6xl mx-auto px-5 grid items-center gap-10 md:grid-cols-2">
-
     <!-- ЛЕВАЯ КОЛОНКА: текст -->
     <div class="animate-hero-in">
-      <!-- Чуть больше line-height, чтобы не резало «y» -->
-      <h1 class="font-display text-secondary text-4xl md:text-6xl leading-[1.14] md:leading-[1.1]">
+      <!-- Чуть увеличенный line-height, чтобы не резало нижние выносные -->
+      <h1 class="font-display text-secondary text-4xl md:text-6xl leading-[1.12] md:leading-[1.08]">
         <span class="block">{titleLine1}</span>
-        <!-- микро-зазор снизу на всякий случай -->
-        <span class="block pb-[2px] bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent">
-          {titleLine2}
+        <span class="block pb-[2px] relative inline-block">
+          <span class="gradient-text shine-trigger">{titleLine2}</span>
         </span>
       </h1>
 
@@ -30,32 +39,32 @@ const {
         {subtitle}
       </p>
 
-        <div class="mt-8 flex items-center gap-3">
-            <ButtonPrimary href={primaryHref}>{primaryLabel}</ButtonPrimary>
-            <ButtonSecondary href={secondaryHref}>{secondaryLabel}</ButtonSecondary>
-        </div>
-
+      <div class="mt-8 flex items-center gap-3">
+        <ButtonPrimary href={primaryHref}>{primaryLabel}</ButtonPrimary>
+        <ButtonSecondary href={secondaryHref}>{secondaryLabel}</ButtonSecondary>
       </div>
     </div>
 
     <!-- ПРАВАЯ КОЛОНКА: иллюстрация узлов/связей -->
     <div class="relative animate-hero-in-delay">
-      <div class="pointer-events-none absolute -inset-8 rounded-[36px] blur-3xl opacity-60"
-           style="background: radial-gradient(120px 120px at 20% 30%, rgba(91,108,255,0.20), transparent 60%),
-                   radial-gradient(160px 160px at 70% 60%, rgba(155,91,255,0.18), transparent 60%),
-                   radial-gradient(120px 120px at 40% 80%, rgba(255,107,107,0.16), transparent 60%);">
-      </div>
+      <div
+        class="pointer-events-none absolute -inset-8 rounded-[36px] blur-3xl opacity-60"
+        style="background:
+          radial-gradient(120px 120px at 20% 30%, rgba(91,108,255,0.20), transparent 60%),
+          radial-gradient(160px 160px at 70% 60%, rgba(155,91,255,0.18), transparent 60%),
+          radial-gradient(120px 120px at 40% 80%, rgba(255,107,107,0.16), transparent 60%);"
+      ></div>
 
       <div class="relative rounded-2xl border border-slate-200 bg-white/70 backdrop-blur p-4 md:p-6 shadow-sm">
         <svg viewBox="0 0 560 420" class="w-full h-auto" role="img" aria-label="Abstract AI node graph">
           <defs>
             <linearGradient id="strokeGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#5B6CFF"/>
-              <stop offset="100%" stop-color="#9B5BFF"/>
+              <stop offset="0%" stop-color="#5B6CFF" />
+              <stop offset="100%" stop-color="#9B5BFF" />
             </linearGradient>
             <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#5B6CFF"/>
-              <stop offset="100%" stop-color="#9B5BFF"/>
+              <stop offset="0%" stop-color="#5B6CFF" />
+              <stop offset="100%" stop-color="#9B5BFF" />
             </linearGradient>
           </defs>
 
@@ -87,8 +96,8 @@ const {
           </g>
 
           <g opacity="0.12" class="motion-safe:animate-breathe">
-            <circle cx="260" cy="210" r="46" fill="#FF6B6B"/>
-            <circle cx="210" cy="120" r="36" fill="#5B6CFF"/>
+            <circle cx="260" cy="210" r="46" fill="#FF6B6B" />
+            <circle cx="210" cy="120" r="36" fill="#5B6CFF" />
           </g>
         </svg>
 
@@ -111,20 +120,52 @@ const {
   .animate-hero-in       { animation: heroIn .7s ease-out both; }
   .animate-hero-in-delay { animation: heroIn .7s ease-out .12s both; }
 
-  /* Hover-пульс для primary */
-  @keyframes softPulse {
-    0%   { transform: scale(1);   box-shadow: 0 6px 14px rgba(255,107,107,.30); }
-    50%  { transform: scale(1.025); box-shadow: 0 10px 22px rgba(255,107,107,.35); }
-    100% { transform: scale(1);   box-shadow: 0 6px 14px rgba(255,107,107,.30); }
-  }
-  .btn-primary:hover { animation: softPulse .9s ease-out; }
+  /* Hover-пульс можно оставить на кнопке через box-shadow, но сейчас используем стандартный hover:opacity-90 */
 
-  /* Плавающие узлы */
-  @keyframes float { 0% {transform:translateY(0)} 50% {transform:translateY(-6px)} 100% {transform:translateY(0)} }
-  @keyframes floatSlow { 0% {transform:translateY(0)} 50% {transform:translateY(-4px)} 100% {transform:translateY(0)} }
-  @keyframes floatFast { 0% {transform:translateY(0)} 50% {transform:translateY(-8px)} 100% {transform:translateY(0)} }
-  @keyframes breathe { 0% {transform:scale(1);opacity:.10} 50% {transform:scale(1.06);opacity:.18} 100% {transform:scale(1);opacity:.10} }
-  @keyframes graphPulse { 0% {stroke-opacity:.35} 50% {stroke-opacity:.55} 100% {stroke-opacity:.35} }
+  /* Градиентный текст + shine */
+  .gradient-text{
+    background-image: linear-gradient(90deg, var(--c1,#5B6CFF), var(--c2,#9B5BFF));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+  }
+  .shine-trigger{
+    --shine-color: rgba(255,255,255,.35);
+    --shine-rot: 20deg;
+    --shine-speed: 1.2s;
+  }
+  .shine-trigger::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(var(--shine-rot),
+        transparent 0%,
+        transparent 45%,
+        var(--shine-color) 50%,
+        transparent 55%,
+        transparent 100%);
+    transform: translateX(-140%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .shine-trigger:hover::after,
+  .shine-trigger:focus-visible::after{
+    animation: shine var(--shine-speed) ease-out forwards;
+    opacity: 1;
+  }
+  @keyframes shine{
+    from { transform: translateX(-140%); }
+    to   { transform: translateX(140%); }
+  }
+
+  /* Плавающие узлы + дыхание линий */
+  @keyframes float { 0%{transform:translateY(0)} 50%{transform:translateY(-6px)} 100%{transform:translateY(0)} }
+  @keyframes floatSlow { 0%{transform:translateY(0)} 50%{transform:translateY(-4px)} 100%{transform:translateY(0)} }
+  @keyframes floatFast { 0%{transform:translateY(0)} 50%{transform:translateY(-8px)} 100%{transform:translateY(0)} }
+  @keyframes breathe { 0%{transform:scale(1);opacity:.10} 50%{transform:scale(1.06);opacity:.18} 100%{transform:scale(1);opacity:.10} }
+  @keyframes graphPulse { 0%{stroke-opacity:.35} 50%{stroke-opacity:.55} 100%{stroke-opacity:.35} }
 
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-float-slow { animation: floatSlow 7.5s ease-in-out infinite; }
@@ -135,61 +176,11 @@ const {
   /* Уважение к reduced-motion */
   @media (prefers-reduced-motion: reduce) {
     .animate-hero-in, .animate-hero-in-delay,
-    .btn-primary:hover,
     .animate-float, .animate-float-slow, .animate-float-fast,
-    .animate-breathe, .animate-graph-pulse {
+    .animate-breathe, .animate-graph-pulse,
+    .shine-trigger::after {
       animation: none !important;
       transform: none !important;
     }
   }
-/* Градиентный текст */
-.gradient-text{
-  background-image: linear-gradient(90deg, var(--c1,#5B6CFF), var(--c2,#9B5BFF));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  position: relative;
-}
-
-/* Shine эффект (ползущая светлая полоска) */
-.shine-trigger{
-  --shine-size: 120px;
-  --shine-color: rgba(255,255,255,.35);
-  --shine-rot: 20deg;
-  --shine-speed: 1.2s;
-}
-
-.shine-trigger::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(var(--shine-rot),
-      transparent 0%,
-      transparent 45%,
-      var(--shine-color) 50%,
-      transparent 55%,
-      transparent 100%);
-  transform: translateX(-140%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Активируем на hover (и на фокус внутри) */
-.shine-trigger:hover::after,
-.shine-trigger:focus-visible::after{
-  animation: shine var(--shine-speed) ease-out forwards;
-  opacity: 1;
-}
-
-@keyframes shine{
-  from { transform: translateX(-140%); }
-  to   { transform: translateX(140%); }
-}
-
-/* respect reduced-motion */
-@media (prefers-reduced-motion: reduce){
-  .shine-trigger::after{ display:none !important; }
-}
-
 </style>
