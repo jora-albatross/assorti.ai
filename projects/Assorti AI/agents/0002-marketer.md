@@ -28,3 +28,29 @@ The Marketer’s outputs often connect directly to “AI Profit Hub” Telegram 
 - Plan Telegram <> assorti.ai funnel (how channel pushes site, and vice versa).
 - Research first SEO keywords for “AI recipes / workflows”.
 
+
+
+
+
+---
+
+## Workflow
+1) Pull priorities from [`Brain`](0001-brain.md).  
+2) Break into campaign tasks → log progress in [`Daily`](../tasks/daily.md).  
+3) New ideas/opportunities → add to [`Backlog`](../tasks/backlog.md).  
+4) Align visuals/copy with [`Designer`](0003-designer.md) and long-form with [`Content`](0005-content.md).  
+5) Report KPIs weekly; update [`Roadmap`](../tasks/roadmap.md) if strategy shifts.
+
+## KPIs (starter)
+- Telegram subs → site clicks (CTR)
+- Unique visitors & session depth
+- UTM conversions per campaign
+- Email/TG opt-ins from recipes
+
+## Cross-links
+- 🧠 [Brain](0001-brain.md)
+- 📥 [Backlog](../tasks/backlog.md)
+- 🛣 [Roadmap](../tasks/roadmap.md)
+- 📅 [Daily](../tasks/daily.md)
+- 🎨 [Designer](0003-designer.md)
+- ✍️ [Content](0005-content.md)
