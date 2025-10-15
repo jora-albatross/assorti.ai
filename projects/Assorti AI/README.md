@@ -8,7 +8,9 @@ The Brain coordinates, the others execute.
 
 ## 📂 Structure
 
-<img width="264" height="483" alt="image" src="https://github.com/user-attachments/assets/65a7ac07-c059-412b-a5d5-64407536beee" />
+<img width="264" height="483" alt="image" src="https://github.com/user-attachments/assets/65a7ac07-c059-412b-a5d5-64407536beee" /> 
+<img width="733" height="802" alt="image" src="https://github.com/user-attachments/assets/00c80235-5548-4f5d-82be-33fab3fe03b5" />
+
 
 
 Projects/
