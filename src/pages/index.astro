@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import RecipeCard from "../components/RecipeCard.astro";
 import { getCollection } from "astro:content";
+import FeatureStrip from "../components/FeatureStrip.astro";
 
 const title = "Assorti.ai — Curated AI, Sorted for You";
 const description = "Ready-to-use AI recipes for creators, marketers and entrepreneurs.";
@@ -15,6 +16,7 @@ const recipes = await getCollection("recipes");
 
 <Layout {title} {description}>
   <Hero />
+  <FeatureStrip />
 
   <section class="py-10">
     <div class="max-w-6xl mx-auto px-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
