@@ -1,4 +1,4 @@
-# Agent 0003 — Designer
+# Agent 0003 — Designer 
 
 **Role:**  
 The Designer ensures Assorti AI looks attractive, professional, and modern.  
