@@ -27,3 +27,28 @@ The Designer often works hand-in-hand with the Marketer (visual storytelling) an
 - Design 2 variations of Hero with strong CTA placement.
 - Sketch recipe card layout with hover interactions.
 - Prepare “social preview pack”: OG image, Telegram banners.
+
+
+---
+
+## Workflow
+1) Sync priorities with [`Brain`](0001-brain.md) and messages from [`Marketer`](0002-marketer.md).  
+2) Update tokens/components in `ui/` docs; ship UI polish in small PRs.  
+3) Keep previews (OG, favicons, banners) aligned with brand.  
+4) Log progress/decisions in [`Daily`](../tasks/daily.md); bigger items → [`Roadmap`](../tasks/roadmap.md).
+
+## Quality Bar
+- Consistent spacing/scale (8px system)
+- Accessible contrast (AA+ where possible)
+- Motion: subtle, purpose-driven, respect `prefers-reduced-motion`
+- Assets optimized (SVG where possible, web-friendly PNG/JPG)
+
+## Cross-links
+- 🧠 [Brain](0001-brain.md)
+- 📥 [Backlog](../tasks/backlog.md)
+- 🛣 [Roadmap](../tasks/roadmap.md)
+- 📅 [Daily](../tasks/daily.md)
+- 📢 [Marketer](0002-marketer.md)
+- 🧑‍💻 [Coder](0004-coder.md)
+
+
