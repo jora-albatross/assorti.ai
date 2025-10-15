@@ -3,6 +3,23 @@
 @tailwind utilities;
 
 /* временно добавим явный класс, чтобы 100% попал в билд */
-.test-colors {
+/*.test-colors {
   @apply text-secondary bg-background;
+}
+*/
+@layer utilities {
+  .shine-text {
+    background: linear-gradient(90deg, #5B6CFF, #9B5BFF, #5B6CFF);
+    background-size: 200% auto;
+    color: #000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
 }
