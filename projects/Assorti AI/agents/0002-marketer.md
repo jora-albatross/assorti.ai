@@ -1,4 +1,4 @@
-# Agent 0002 — Marketer
+# Agent 0002 — Marketer 
 
 **Role:**  
 The Marketer manages visibility, hype, and traffic growth for Assorti AI.  
