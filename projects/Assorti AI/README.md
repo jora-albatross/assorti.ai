@@ -8,6 +8,9 @@ The Brain coordinates, the others execute.
 
 ## 📂 Structure
 
+<img width="264" height="483" alt="image" src="https://github.com/user-attachments/assets/65a7ac07-c059-412b-a5d5-64407536beee" />
+
+
 Projects/
 └── Assorti AI/
 ├── agents/
