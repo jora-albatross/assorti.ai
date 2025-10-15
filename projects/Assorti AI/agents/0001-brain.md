@@ -1,4 +1,4 @@
-# Agent 0001 — Brain (Conductor)
+# Agent 0001 — Brain (Conductor) 
 
 **Role:**  
 The Brain is the central coordinator of the Assorti AI project.  
