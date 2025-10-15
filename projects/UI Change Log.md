@@ -203,6 +203,33 @@
 
 ---
 
+---
+
+## 0006 — Active NavLink & Hero Shine-on-hover
+
+**Date:** 2025-10-15  
+**Files:**  
+- `src/components/NavLink.astro` (new)  
+- `src/layouts/Layout.astro` (header uses NavLink)  
+- `src/components/Hero.astro` (shine only on hover)
+
+**Issue:**  
+Навигация не подсвечивала активную страницу; shine заголовка отвлекал при постоянной анимации.
+
+**Fix Applied:**  
+- Создан `NavLink.astro` с вычислением `isActive` через `Astro.url.pathname`.  
+- В хедере ссылки заменены на `<NavLink>`.  
+- Shine у заголовка Hero активируется только при hover, а не постоянно.
+
+**Before:**  
+Все ссылки выглядели одинаково; shine постоянно «ездил».
+
+**After:**  
+Активная страница подсвечена `text-primary`; shine — деликатный, только при наведении.
+
+**Lessons Learned:**  
+Микро-обратная связь (active/hover) сильно повышает ощущение качества; анимации по умолчанию лучше оставлять спокойными.
+
 
 
 
