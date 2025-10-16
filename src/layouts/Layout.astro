@@ -2,29 +2,25 @@
 import "../styles/tailwind.css";
 import NavLink from "../components/NavLink.astro";
 
-
-// Дефолты на случай, если страница не передаст пропсы
-
 const {
   title = "Assorti.ai — Curated AI, Sorted for You",
   description = "Ready-to-use AI recipes for real tasks",
   ogImage = "/img/og/default.png"
 } = Astro.props;
 
-// Доп. защита: если вдруг что-то передали не строкой
+// Доп. защита, если кто-то передаст не строку
 const ogSafe = typeof ogImage === "string" ? ogImage : "/img/og/default.png";
-
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-   <head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
 
-   <!-- Open Graph -->
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogSafe} />
@@ -38,61 +34,58 @@ const ogSafe = typeof ogImage === "string" ? ogImage : "/img/og/default.png";
     <meta name="twitter:image" content={ogSafe} />
 
     <!-- Favicon + Touch Icons -->
-   <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
-   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-   <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-   
-   <meta name="theme-color" content="#5B6CFF" />
-
+    <meta name="theme-color" content="#5B6CFF" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
   <body class="bg-background text-secondary font-sans">
-
-  <header class="sticky top-0 z-20 bg-white/85 backdrop-blur border-b border-line">
-     <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-       <a href="/" class="flex items-center gap-3">
-         <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal to-coral grid place-items-center text-white font-black">A</div>
-         <strong class="text-navy">Assorti.ai</strong>
-       </a>
-       <nav class="space-x-5">
-         <NavLink href="/recipes">Recipes</NavLink>
-         <NavLink href="/about">About</NavLink>
-         <NavLink href="/disclosure">Disclosure</NavLink>
-       </nav>
-     </div>
-  </header>
-
+    <header class="sticky top-0 z-20 bg-white/85 backdrop-blur border-b border-line">
+      <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal to-coral grid place-items-center text-white font-black">A</div>
+          <strong class="text-navy">Assorti.ai</strong>
+        </a>
+        <nav class="space-x-5">
+          <NavLink href="/recipes">Recipes</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/disclosure">Disclosure</NavLink>
+        </nav>
+      </div>
+    </header>
 
     <main class="max-w-6xl mx-auto px-5">
       <slot />
     </main>
 
     <footer class="mt-16 border-t border-line">
-      <div class="max-w-6xl mx-auto px-5 py-6 text-slate-600">© {new Date().getFullYear()} Assorti.ai · Curated AI, Sorted for You</div>
+      <div class="max-w-6xl mx-auto px-5 py-6 text-slate-600">
+        © {new Date().getFullYear()} Assorti.ai · Curated AI, Sorted for You
+      </div>
     </footer>
 
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(reg => {
-        console.log('SW registered:', reg.scope);
-        // пример запроса мгновенного обновления (по желанию)
-        // if (reg.waiting) reg.waiting.postMessage('SKIP_WAITING');
-      })
-      .catch(err => console.error('SW registration failed:', err));
-  });
-}
-</script>
-
-
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((reg) => {
+              console.log("SW registered:", reg.scope);
+            })
+            .catch((err) => console.error("SW registration failed:", err));
+        });
+      }
+    </script>
   </body>
 </html>
