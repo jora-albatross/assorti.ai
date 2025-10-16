@@ -8,6 +8,7 @@ const recipes = defineCollection({
     category: z.enum(['image','video','text','audio','business']),
     eta: z.number().int(),
     preview: z.string().optional(),
+    ogImage: z.string().optional(),
     outcome: z.array(z.string()).optional(),
     tools: z.array(z.object({
       name: z.string(),
