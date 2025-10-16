@@ -4,6 +4,7 @@ category: "Video"
 eta: 10
 summary: "Generate, edit and publish YouTube Shorts quickly using AI tools like ChatGPT, Canva and CapCut."
 preview: "/img/recipes/youtube-shorts.svg"
+ogImage: "/img/og/recipe-youtube-shorts.png"
 ---
 
 ## Steps
