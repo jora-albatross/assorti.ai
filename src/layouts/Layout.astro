@@ -50,7 +50,9 @@ const ogSafe = typeof ogImage === "string" ? ogImage : "/img/og/default.png";
       rel="stylesheet"
     />
   </head>
-  <body class="bg-background text-secondary font-sans">
+
+  <body class="bg-background text-secondary font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
+
     <header class="sticky top-0 z-20 bg-white/85 backdrop-blur border-b border-line">
       <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3">
@@ -65,7 +67,7 @@ const ogSafe = typeof ogImage === "string" ? ogImage : "/img/og/default.png";
       </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-5">
+    <main class="max-w-6xl mx-auto px-4 sm:px-5">  // was "max-w-6xl mx-auto px-5"
       <slot />
     </main>
 
