@@ -1,7 +1,7 @@
 ---
 import "../styles/tailwind.css";
 import NavLink from "../components/NavLink.astro";
-const { title="Assorti.ai — Curated AI, Sorted for You", description="Ready-to-use AI recipes for real tasks" } = Astro.props;
+const { title="Assorti.ai — Curated AI, Sorted for You" } = Astro.props;
 
 // Дефолты на случай, если страница не передаст пропсы
 
@@ -20,6 +20,9 @@ const ogSafe = typeof ogImage === "string" ? ogImage : "/img/og/default.png";
    <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
 
    <!-- Open Graph -->
     <meta property="og:title" content={title} />
