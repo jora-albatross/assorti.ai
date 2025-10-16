@@ -13,6 +13,8 @@ if (!recipe) throw new Error('Recipe not found');
 
 const d = recipe.data;
 const title = `${d.title} — Assorti.ai`;
+const og = d.ogImage ?? "/img/og/default.png"; // fallback на общий OG
+
 ---
 <Layout {title} description={d.summary} ogImage={d.preview ?? '/img/og.png'}>
   <a href="/recipes">← Все рецепты</a>
