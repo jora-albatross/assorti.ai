@@ -2,6 +2,18 @@
 import "../styles/tailwind.css";
 import NavLink from "../components/NavLink.astro";
 const { title="Assorti.ai — Curated AI, Sorted for You", description="Ready-to-use AI recipes for real tasks" } = Astro.props;
+
+// Дефолты на случай, если страница не передаст пропсы
+
+const {
+  title = "Assorti.ai — Curated AI, Sorted for You",
+  description = "Ready-to-use AI recipes for real tasks",
+  ogImage = "/img/og/default.png"
+} = Astro.props;
+
+// Доп. защита: если вдруг что-то передали не строкой
+const ogSafe = typeof ogImage === "string" ? ogImage : "/img/og/default.png";
+
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
@@ -9,7 +21,9 @@ const { title="Assorti.ai — Curated AI, Sorted for You", description="Ready-to
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Open Graph -->
+ <!--
+
+   <!-- Open Graph -->
    <meta property="og:title" content={title} />
    <meta property="og:description" content={description} />
    <meta property="og:image" content={ogImage} />
@@ -22,14 +36,16 @@ const { title="Assorti.ai — Curated AI, Sorted for You", description="Ready-to
    <meta name="twitter:description" content={description} />
    <meta name="twitter:image" content={ogImage} />
 
+-->
+
 
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Open Graph -->
+   <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/img/og.png" />
+    <meta property="og:image" content={ogSafe} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://assorti.ai" />
 
@@ -37,7 +53,7 @@ const { title="Assorti.ai — Curated AI, Sorted for You", description="Ready-to
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/img/og.png" />
+    <meta name="twitter:image" content={ogSafe} />
 
     <!-- Favicon + Touch Icons -->
    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
