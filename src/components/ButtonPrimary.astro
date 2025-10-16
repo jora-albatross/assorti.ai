@@ -1,9 +1,14 @@
 ---
 const { href = "#", children } = Astro.props;
 ---
-<a href={href}
-   class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-semibold shadow-sm transition
+<!-- <a href={href}
+          class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-accent text-white font-semibold shadow-sm transition
           hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:ring-offset-2">
-  {children}
-</a>
+     {children}
+     </a> -->
 
+<a class="inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-lg 
+           bg-primary text-white font-medium
+           hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60">
+  Get Started
+</a>
