@@ -31,14 +31,16 @@ const {
 <div class="col-span-1 min-w-0 relative z-10">
   <!-- H1: появляется первым -->
   <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold
+             leading-tight md:leading-[1.1]
              bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent
-             animate-fadeInUp delay-100 motion-reduce:animate-none">
+             animate-fadeInUp delay-100 motion-reduce:animate-none transform-gpu will-change-transform">
              Curated AI Recipes,<br />Ready to Ship
         <span class="shine-trigger">Ready to Ship</span>
   </h1>
 
   <!-- Подзаголовок: появляется вторым -->
-  <p class="mt-6 text-lg text-slate-600 max-w-xl animate-fadeInUp delay-200 motion-reduce:animate-none">
+  <p class="mt-6 text-lg text-slate-600 max-w-xl animate-fadeInUp delay-200 
+            motion-reduce:animate-none transform-gpu will-change-transform">
     Playbooks that actually save time. No fluff — just repeatable workflows.
   </p>
 
@@ -46,12 +48,12 @@ const {
   <div class="mt-6 flex gap-4">
     <a href="/recipes"
        class="px-5 py-3 rounded-lg bg-accent text-white font-semibold hover:shadow-lg transition
-              animate-fadeInUp delay-300 motion-reduce:animate-none">
+              animate-fadeInUp delay-300 motion-reduce:animate-none transform-gpu will-change-transform">
       Explore Recipes
     </a>
     <a href="/about"
        class="px-5 py-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition
-              animate-fadeInUp delay-400 motion-reduce:animate-none">
+              animate-fadeInUp delay-400 motion-reduce:animate-none transform-gpu will-change-transform">
       How it works
     </a>
   </div>
