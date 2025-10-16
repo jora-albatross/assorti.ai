@@ -27,3 +27,18 @@ Create and maintain high-quality **AI recipes** and supporting editorial content
 - 🛣 [Roadmap](../tasks/roadmap.md)
 - 📅 [Daily](../tasks/daily.md)
 
+## 📌 Recipe Creation Guidelines
+
+All recipes must follow a unified structure to ensure clarity and consistency.  
+The **master template** is stored here:  
+👉 [`/projects/Assorti AI/tasks/recipe-template.md`](../tasks/recipe-template.md)
+
+When creating or editing a recipe:  
+1. Duplicate the template from `tasks/recipe-template.md`.  
+2. Fill in all required fields (Title, Summary, Category, Time, Tools, Steps, etc.).  
+3. Add example outputs or screenshots if possible.  
+4. Save the new recipe under `/recipes/` (GitHub repo) or content directory in CMS.  
+
+⚡ **Important:** Always keep recipes short, actionable, and easy to follow.  
+They should be publish-ready for both the Assorti.ai website and the AI Profit Hub Telegram channel.  
+
