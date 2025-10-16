@@ -9,11 +9,12 @@ const imageAlt = d.imageAlt ?? `${d.title} – preview`;
 const titleId = `recipe-title-${recipe.slug}`;
 ---
 
-<a href={href}
+<a 
+href={href}
   aria-labelledby={titleId}
   class="group block overflow-hidden rounded-2xl border border-slate-200 bg-white transition
          hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
-/>
+>
 
   <!-- Image (prevents CLS with fixed ratio + width/height) -->
 
