@@ -1,6 +1,6 @@
 ---
 title: "Create YouTube Shorts in 10 Minutes"
-category: "Video"
+category: "video"
 eta: 10
 summary: "Generate, edit and publish YouTube Shorts quickly using AI tools like ChatGPT, Canva and CapCut."
 preview: "/img/recipes/youtube-shorts.svg"
