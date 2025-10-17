@@ -2,107 +2,26 @@
 import RecipeCard from "../../components/RecipeCard.astro";
 import { getCollection } from "astro:content";
 
-const recipes = await getCollection("recipes");
-
-// Получаем уникальные категории (без пустых)
-const categories = Array.from(
-  new Set(recipes.map(r => r.data.category).filter(Boolean))
-).sort();
+const recipes = await getCollection('recipes');
+// при желании — сортировка: последние наверх
+// recipes.sort((a,b) => (b.data?.date ?? 0) - (a.data?.date ?? 0));
 ---
 
-<html lang="en">
-  <head>
-    <title>Recipes — Assorti.ai</title>
-    <meta name="description" content="Explore ready-to-use AI recipes for creators, marketers and entrepreneurs." />
-  </head>
-  <body class="bg-white text-secondary">
-    <main class="max-w-6xl mx-auto px-5 py-12">
-      <!-- Заголовок + счётчик -->
-      <h1 class="text-3xl md:text-4xl font-display font-bold mb-2">
-        All Recipes
-      </h1>
-      <p id="recipes-count" class="text-secondary/70 mb-6">
-        {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} available
-      </p>
+<section class="py-10">
+  <div class="max-w-6xl mx-auto px-5">
+    <header class="mb-6">
+      <h1 class="font-display text-3xl md:text-4xl text-secondary">All Recipes</h1>
+      <p class="text-secondary/70 mt-1">Ready-to-use playbooks for creators, marketers and founders.</p>
+    </header>
 
-      <!-- Фильтры -->
-      <div class="flex flex-wrap gap-2 mb-8" id="filters" aria-label="Filter by category">
-        <button
-          class="px-3 py-1.5 rounded-lg text-sm border border-slate-200 bg-slate-50 hover:bg-slate-100
-                 data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary"
-          data-filter="all"
-          data-active="true"
-          aria-pressed="true"
-        >
-          All
-        </button>
-
-        {categories.map((cat) => (
-          <button
-            class="px-3 py-1.5 rounded-lg text-sm border border-slate-200 bg-slate-50 hover:bg-slate-100
-                   data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary"
-            data-filter={cat.toLowerCase()}
-            data-active="false"
-            aria-pressed="false"
-          >
-            {cat}
-          </button>
-        ))}
+    {recipes.length === 0 ? (
+      <div class="p-6 rounded-xl border border-slate-200 text-secondary/70">
+        No recipes yet. Add files into <code>/content/recipes/</code>.
       </div>
-
-      <!-- Сетка карточек -->
-      {recipes.length > 0 ? (
-        <div id="grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {recipes.map((recipe) => (
-            <RecipeCard recipe={recipe} />
-          ))}
-        </div>
-      ) : (
-        <div class="text-center py-16">
-          <p class="text-lg text-secondary/70 mb-4">
-            No recipes yet. Check back soon!
-          </p>
-          <a
-            href="/"
-            class="inline-block px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition"
-          >
-            Back to Home
-          </a>
-        </div>
-      )}
-    </main>
-
-    <!-- Мини-скрипт фильтрации (без зависимостей) -->
-    <script is:inline>
-      const btns = Array.from(document.querySelectorAll('#filters [data-filter]'));
-      const cards = Array.from(document.querySelectorAll('#grid [data-category]'));
-      const counter = document.getElementById('recipes-count');
-
-      function setActive(btn) {
-        btns.forEach(b => { b.dataset.active = 'false'; b.setAttribute('aria-pressed','false'); });
-        btn.dataset.active = 'true';
-        btn.setAttribute('aria-pressed','true');
-      }
-
-      function applyFilter(value) {
-        let visible = 0;
-        cards.forEach(card => {
-          const cardCat = (card.dataset.category || 'other').toLowerCase();
-          const show = (value === 'all') || (cardCat === value);
-          card.classList.toggle('hidden', !show);
-          if (show) visible++;
-        });
-        if (counter) {
-          counter.textContent = `${visible} ${visible === 1 ? 'recipe' : 'recipes'} ${value==='all' ? 'available' : 'in ‘' + value + '’'}`;
-        }
-      }
-
-      btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          setActive(btn);
-          applyFilter(btn.dataset.filter);
-        });
-      });
-    </script>
-  </body>
-</html>
+    ) : (
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {recipes.map((r) => <RecipeCard recipe={r} />)}
+      </div>
+    )}
+  </div>
+</section>
