@@ -1,0 +1,60 @@
+name: 🚀 Deploy to Cloudflare Pages (by tag)
+
+on:
+  # Деплой запускается ТОЛЬКО когда пушим тег вида v1.2.3
+  push:
+    tags:
+      - "v*.*.*"
+  # Ручной запуск из вкладки Actions
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Чекаутим репозиторий
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+
+      # 2) Ставим Node.js (LTS) и включаем npm cache
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      # 3) Устанавливаем зависимости
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      # 4) Сборка Astro → dist/
+      - name: 🔨 Build (Astro → dist/)
+        run: npm run build
+
+      # 5) Публикация на Cloudflare Pages
+      #    Нужны секреты:
+      #    - CF_API_TOKEN     (Cloudflare API Token: Account->Cloudflare Pages->Edit + Account Settings Read)
+      #    - CF_ACCOUNT_ID    (Account ID)
+      #    - CF_PAGES_PROJECT (имя проекта Pages, например "assorti-ai")
+      - name: 🚢 Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ secrets.CF_PAGES_PROJECT }}
+          directory: ./dist
+          # добавим GitHub токен для аннотаций/логов (есть по умолчанию)
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # (Опционально) Сохраняем сборку как артефакт
+      - name: 📤 Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          if-no-files-found: warn
