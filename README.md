@@ -129,4 +129,81 @@ Icons not visible in Manifest:
 PWA not installable:
 Check HTTPS, site.webmanifest headers, and that SW is registered (DevTools → Application → Service Workers).
 
+===========================================================================================================
+
+2025-10-17
+
+===================
+
+# Assorti.ai
+
+Curated AI recipes — ready-to-use workflows for creators, marketers and entrepreneurs.  
+Built with [Astro](https://astro.build), styled with [Tailwind CSS](https://tailwindcss.com).
+
+---
+
+## 📦 Install
+
+```bash
+git clone https://github.com/jora-albatross/assorti.ai.git
+cd assorti.ai
+npm install
+
+🛠 Dev Server
+npm run dev
+
+Runs at http://localhost:4321
+
+🏗 Build
+npm run build
+Output goes to /dist.
+
+🚀 Manual Deploy (CLI)
+Помимо авто-деплоя из GitHub/Cloudflare Pages, проект можно деплоить вручную через CLI.
+Это удобно для превью веток или для продакшн-билда «своими руками».
+
+## Требования
+
+        Node.js + npm
+        Git установлен и доступен в PATH
+        Wrangler CLI (можно запускать через npx wrangler)
+
+# Первый запуск
+Один раз залогинься в Cloudflare:
+
+npx wrangler login
+
+Скрипт Bash (deploy.sh)
+# превью-деплой для feature-ветки
+./deploy.sh preview feature/my-card
+
+# продакшн-деплой (ветка main)
+git checkout main
+git pull origin main
+./deploy.sh prod
+
+Скрипт PowerShell (deploy.ps1)
+# превью
+.\deploy.ps1 -Mode preview -Branch feature/my-card
+
+# прод
+git checkout main
+git pull origin main
+.\deploy.ps1 -Mode prod
+
+# Частые ошибки
+        project not found → проверь имя проекта в Cloudflare Pages (CF_PROJECT в скрипте).
+        not logged in → выполни npx wrangler login.
+        branch mismatch → если деплоишь прод, убедись что branch совпадает с продакшн-веткой в настройках Pages (обычно main).
+        working tree not clean → для прод скрипт требует чистый git (commit/stash сначала).
+
+📖 Docs
+        /projects/Assorti AI/docs/strategy-master.md → стратегия
+        /projects/Assorti AI/doc
+        /projects/Assorti AI/docs/distribution.md → каналы продвижения
+        /projects/Assorti AI/agents/ → роли и задачи агентов
+
+🧑‍💻 Contributing
+
+Пока только для internal use. Guidelines будут добавлены позже в CONTRIBUTING.md.
 
