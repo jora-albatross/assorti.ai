@@ -16,7 +16,7 @@ const title = `${d.title} — Assorti.ai`;
 const og = d.ogImage ?? "/img/og/default.png"; // fallback на общий OG
 
 ---
-<Layout {title} description={d.summary} ogImage={og}>
+<Layout title={`${d.title} — Assorti.ai`} description={d.summary} ogImage={og}>
   <a href="/recipes">← Все рецепты</a>
   <h1 style="margin-top:8px">{d.title}</h1>
   <p class="muted">{d.summary}</p>
