@@ -1,24 +1,44 @@
 ---
-title: "YouTube Shorts за 10 минут"
-summary: "Сценарий → озвучка → видео: ChatGPT + ElevenLabs + Runway."
+title: "10-Minute YouTube Shorts"
+summary: "Create 3 short videos in 10 minutes using clips + captions + music."
 category: "video"
 eta: 10
-preview: "/img/shorts-demo.png"
+preview: "/img/recipes/youtube-shorts-cover.jpg"
+ogImage: "/img/og/recipe-youtube-shorts.png"
+
 outcome:
-  - "Готовый вертикальный ролик 9:16"
-  - "Субтитры и чёткий хук"
+  - "3 ready-to-post Shorts (1080×1920)"
+  - "Auto-captions & music synced"
+  - "Hook-first structure"
+
 tools:
+  - { name: "CapCut", url: "https://www.capcut.com" }
+  - { name: "Canva", url: "https://www.canva.com" }
   - { name: "ChatGPT", url: "https://chat.openai.com" }
-  - { name: "ElevenLabs", url: "https://elevenlabs.io", affiliate_url: "https://elevenlabs.io/?via=assorti" }
-  - { name: "Runway ML", url: "https://runwayml.com", affiliate_url: "https://runwayml.com?ref=assorti" }
+
 steps:
-  - { title: "Сценарий", description: "Сгенерируй 80–120 слов с 3-х шаговым хук-структурой." }
-  - { title: "Озвучка", description: "Синтезируй голос в ElevenLabs (тон энергичный, скорость 1.05)." }
-  - { title: "Видео", description: "Импортируй аудио в Runway, добавь авто-сабтайтлы, экспорт 1080x1920." }
+  - title: "Collect 3 hooks"
+    description: "Ask ChatGPT for 10 hooks about your topic. Pick 3 best."
+    tip: "Use numbers & curiosity."
+  - title: "Cut raw clips"
+    description: "Trim 10–20s fragments with clear message."
+  - title: "Auto-captions"
+    description: "Enable auto-captions in CapCut; fix 2–3 words."
+  - title: "Add music & punch-ins"
+    description: "Keep music -24 to -18 LUFS; add 2–3 zoom cuts."
+  - title: "Export 1080×1920"
+    description: "H.264 MP4, high bitrate."
+
 prompts:
-  - { label: "Сценарий Shorts", content: "Напиши сценарий для 30–40с ролика по теме: {тема}. Структура: хук (1 фраза) → 3 факта → CTA." }
-youtube_id: "b0KU4cJgj6g"
-cost_note: "Free tiers доступны; апгрейд Runway Pro ~$15/мес"
+  - label: "Hook ideas"
+    content: "Give me 10 irresistible hooks for a 20s short about <TOPIC>. Make them punchy, curiosity-driven, specific."
+  - label: "Caption rewrite"
+    content: "Rewrite this text for on-screen captions, 12 words per line max, no jargon: <TEXT>"
+
+youtube_id: "dQw4w9WgXcQ"
+cost_note: "Free tools; optional Canva Pro."
 ---
+
+Brief intro text if needed…
 
 **Совет:** используй первые 2 секунды для сильного визуального хука (сравнение, шок-цифра, before/after).
