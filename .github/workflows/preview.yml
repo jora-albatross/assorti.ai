@@ -1,0 +1,64 @@
+name: 🧪 PR Preview to Cloudflare Pages
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: preview-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 📦 Install deps
+        run: npm ci
+
+      - name: 🔨 Build (Astro → dist/)
+        run: npm run build
+
+      # Деплой превью на Cloudflare Pages
+      - name: 🚀 Publish Preview to Cloudflare Pages
+        id: pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ secrets.CF_PAGES_PROJECT }}
+          directory: ./dist
+          # Ветка превью = ветка PR
+          branch: ${{ github.head_ref }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # (Опционально) прокомментировать PR с ссылкой на превью
+      - name: 💬 Comment preview URL
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = [
+              "✅ **Preview deployed to Cloudflare Pages**",
+              "",
+              "- Branch: `" + context.payload.pull_request.head.ref + "`",
+              "- Commit: `" + context.payload.pull_request.head.sha.substring(0,7) + "`",
+              "",
+              "🔗 Открой превью в разделе **Deployments** Cloudflare Pages " +
+              "(workflow пишет URL в логи шага `Publish Preview to Cloudflare Pages`)."
+            ].join("\n");
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body
+            });
