@@ -301,12 +301,11 @@ Pull Request (PR) — это запрос на слияние твоих изм�
 # Готовая схема “PR → preview, main → production” через GitHub Actions + Cloudflare Pages.
 
 ## 1) Что подготовить в секретах репо
-
 В GitHub → Settings → Secrets and variables → Actions добавь три репозиторных секрета:
 
-CF_ACCOUNT_ID — ID аккаунта Cloudflare
-CF_API_TOKEN — API Token с правами: Pages:Edit, Account:Read
-CF_PROJECT_NAME — имя проекта Pages (у тебя оно видно в дашборде Pages)
+        CF_ACCOUNT_ID — ID аккаунта Cloudflare
+        CF_API_TOKEN — API Token с правами: Pages:Edit, Account:Read
+        CF_PROJECT_NAME — имя проекта Pages (у тебя оно видно в дашборде Pages)
 
 Подсказка: в Cloudflare → Pages → твой проект → Settings → Project info — там и account_id, и project name.
 
