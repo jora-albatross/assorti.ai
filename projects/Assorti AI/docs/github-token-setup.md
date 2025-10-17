@@ -18,7 +18,7 @@
 Добавьте:
 
         1.  CF_API_TOKEN = ваш токен
-        2.   CF_ACCOUNT_ID = ваш Account ID (см. Workers & Pages → Overview или Account Home)
+        2.  CF_ACCOUNT_ID = ваш Account ID (см. Workers & Pages → Overview или Account Home)
         3.  CF_PROJECT_NAME = имя проекта Pages (например, assorti-ai), если используете action/скрипт, где это требуется.
 
 ### Если в списке Permissions вы не видите “Cloudflare Pages”:
