@@ -16,9 +16,9 @@
 ## Куда положить токен в GitHub
 ### В репозитории: Settings → Secrets and variables → Actions → New repository secret
 Добавьте:
-    CF_API_TOKEN = ваш токен
-    CF_ACCOUNT_ID = ваш Account ID (см. Workers & Pages → Overview или Account Home)
-    CF_PROJECT_NAME = имя проекта Pages (например, assorti-ai), если используете action/скрипт, где это требуется.
+            CF_API_TOKEN = ваш токен
+            CF_ACCOUNT_ID = ваш Account ID (см. Workers & Pages → Overview или Account Home)
+            CF_PROJECT_NAME = имя проекта Pages (например, assorti-ai), если используете action/скрипт, где это требуется.
 
 ### Если в списке Permissions вы не видите “Cloudflare Pages”:
     Проверьте, что создаёте Custom Token, а не выбираете готовый шаблон (типа “Edit Cloudflare Workers”).
