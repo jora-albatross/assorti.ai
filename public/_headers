@@ -10,7 +10,6 @@
   Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
 
-
 /favicon.ico
   Content-Type: image/x-icon
   Cache-Control: public, max-age=604800, immutable
@@ -42,3 +41,11 @@
 /img/og.png
   Content-Type: image/png
   Cache-Control: public, max-age=604800, immutable
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: interest-cohort=()
+  X-Robots-Tag: all
+  Link: </sitemap.xml>; rel="sitemap"
