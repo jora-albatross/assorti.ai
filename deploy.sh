@@ -39,3 +39,13 @@ git push origin "$BRANCH"
 
 echo
 echo "✔ Done. If Cloudflare Pages is manual, trigger deploy in the dashboard."
+
+if [[ -n "${CF_PAGES_HOOK_URL:-}" ]]; then
+  echo "→ Trigger Cloudflare Pages build via Deploy Hook…"
+  curl -s -X POST "$CF_PAGES_HOOK_URL" \
+    && echo "✓ Hook fired" \
+    || echo "⚠ Hook call failed"
+else
+  echo "ℹ CF_PAGES_HOOK_URL is not set. Open Deploy Hook URL manually to build."
+fi
+
