@@ -207,3 +207,11 @@ git pull origin main
 
 Пока только для internal use. Guidelines будут добавлены позже в CONTRIBUTING.md.
 
+📌 Объяснение:
+
+git status → проверяешь, что изменено
+git add . → добавляешь все изменения
+git commit -m "feat: update" → делаешь коммит (сообщение меняешь по задаче: feat, fix, chore и т.д.)
+git push origin main → отправляешь на GitHub
+##  Quick Git Flow
+                    git status && git add . && git commit -m "feat: update" && git push origin main
