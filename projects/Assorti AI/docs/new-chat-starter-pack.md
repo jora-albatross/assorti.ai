@@ -212,8 +212,8 @@ AssortiAI
     └── Премиум рецепты
 
 ## ⚙️ Как мы работаем:
-  Все изменения → через GitHub (commit → push → deploy).
-  Контент → recipes/ + agents/0005-content.md.
-  Управление проектом → tasks/backlog.md, roadmap.md.
-  Деплой: Cloudflare Pages (ручной или скрипт).
-  Организация: всё хранится структурировано в /projects/Assorti AI/.
+          Все изменения → через GitHub (commit → push → deploy).
+          Контент → recipes/ + agents/0005-content.md.
+          Управление проектом → tasks/backlog.md, roadmap.md.
+          Деплой: Cloudflare Pages (ручной или скрипт).
+          Организация: всё хранится структурировано в /projects/Assorti AI/.
