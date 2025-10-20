@@ -1,26 +1,28 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
-import RecipeCard from "../components/RecipeCard.astro";
-import { getCollection } from "astro:content";
-import FeatureStrip from "../components/FeatureStrip.astro";
-
-const title = "Assorti.ai — Curated AI, Sorted for You";
-const description = "Ready-to-use AI recipes for creators, marketers and entrepreneurs.";
-
-// подгружаем все рецепты (можешь отсортировать как нужно)
-const recipes = await getCollection("recipes");
-// пример сортировки по полю 'order' (если есть):
-// const recipes = (await getCollection("recipes")).sort((a,b)=>(a.data.order??999)-(b.data.order??999));
+import RecipeGrid from "../components/RecipeGrid.astro";
 ---
 
-<Layout {title} {description}>
-  <Hero />
-  <FeatureStrip />
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>AssortiAI — AI Recipes Hub</title>
+    <meta name="description" content="AI-хаб с готовыми рецептами для маркетинга, автоматизаций и креатива." />
+  </head>
+  <body class="bg-zinc-50">
+    <header class="sticky top-0 bg-white/80 backdrop-blur border-b border-zinc-100 z-50">
+      <Nav />
+    </header>
 
-  <section class="py-10">
-    <div class="max-w-6xl mx-auto px-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {recipes.map((r) => <RecipeCard recipe={r} />)}
-    </div>
-  </section>
-</Layout>
+    <main>
+      <Hero />
+      <RecipeGrid />
+    </main>
+
+    <footer class="mx-auto max-w-6xl px-4 py-10 text-center text-sm text-zinc-500">
+      © {new Date().getFullYear()} AssortiAI
+    </footer>
+  </body>
+</html>
