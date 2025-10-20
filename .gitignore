@@ -36,3 +36,6 @@ lerna-debug.log*
 # --- Misc ---
 coverage/
 .tmp/
+
+# C:\Users\Serge\Documents\GitHub\assorti.ai\.gitignore
+.astro/
