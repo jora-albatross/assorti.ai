@@ -10,6 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    # 👉 один раз задаём рабочую папку для всех шагов
+    defaults:
+      run:
+        working-directory: ./
+
     steps:
       - name: 📥 Checkout repo
         uses: actions/checkout@v4
