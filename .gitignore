@@ -4,7 +4,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-package-lock.json
+# package-lock.json
 pnpm-lock.yaml
 yarn.lock
  
@@ -36,3 +36,6 @@ lerna-debug.log*
 # --- Misc ---
 coverage/
 .tmp/
+
+# C:\Users\Serge\Documents\GitHub\assorti.ai\.gitignore
+.astro/
