@@ -23,7 +23,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # cache: 'npm'  # ВАЖНО: кеш выключен, чтобы не требовал lock-файл на этом шаге
+          # cache: 'npm'                <-- удалить
+          # cache-dependency-path: ...  <-- удалить
 
       - name: 📦 Install dependencies
         run: npm install

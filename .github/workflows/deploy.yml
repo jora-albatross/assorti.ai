@@ -16,6 +16,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    # 👉 один раз задаём рабочую папку для всех шагов
+    defaults:
+      run:
+        working-directory: ./
+
     steps:
       # 1) Чекаутим репозиторий
       - name: 📥 Checkout repo
@@ -26,11 +31,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          # cache: 'npm'  # ВАЖНО: кеш выключен, чтобы не требовал lock-файл на этом шаге
+          # cache: 'npm'                <-- удалить
+          # cache-dependency-path: ...  <-- удалить
 
       # 3) Устанавливаем зависимости
       - name: 📦 Install dependencies
-        run: npm ci
+        run: npm install
 
       # 4) Сборка Astro → dist/
       - name: 🔨 Build (Astro → dist/)
