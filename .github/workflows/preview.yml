@@ -35,7 +35,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: ${{ secrets.CF_PAGES_PROJECT }}
+          projectName: ${{ secrets.CF_PAGES_PROJECT_NAME }}
           directory: ./dist
           # Ветка превью = ветка PR
           branch: ${{ github.head_ref }}
