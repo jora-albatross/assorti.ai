@@ -36,3 +36,7 @@ lerna-debug.log*
 # --- Misc ---
 coverage/
 .tmp/
+
+# Local tooling / editors
+--copilot/
+.astro/
