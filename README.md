@@ -198,10 +198,10 @@ git pull origin main
         working tree not clean → для прод скрипт требует чистый git (commit/stash сначала).
 
 📖 Docs
-        /projects/Assorti AI/docs/strategy-master.md → стратегия
-        /projects/Assorti AI/doc
-        /projects/Assorti AI/docs/distribution.md → каналы продвижения
-        /projects/Assorti AI/agents/ → роли и задачи агентов
+        /projects/Assorti-AI/docs/strategy-master.md → стратегия
+        /projects/Assorti-AI/doc
+        /projects/Assorti-AI/docs/distribution.md → каналы продвижения
+        /projects/Assorti-AI/agents/ → роли и задачи агентов
 
 🧑‍💻 Contributing
 
@@ -421,7 +421,7 @@ npm run preview
 ## Структура проекта
 
 ```
-/projects/Assorti AI/
+/projects/Assorti-AI/
 │
 ├── agents/               # Роли-агенты (brain, marketer, designer, coder, content)
 │   ├── 0001-brain.md
@@ -651,7 +651,7 @@ npm run preview   # предпросмотр собранного
 
 ```bash
 # Переходы
-cd "C:/Projects/Assorti AI"
+cd "C:/projects/Assorti-AI"
 
 # Список файлов
 ls -la               # PowerShell: ls; Git Bash: ls -la

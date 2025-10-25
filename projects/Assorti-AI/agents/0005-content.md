@@ -31,7 +31,7 @@ Create and maintain high-quality **AI recipes** and supporting editorial content
 
 All recipes must follow a unified structure to ensure clarity and consistency.  
 The **master template** is stored here:  
-👉 [`/projects/Assorti AI/tasks/recipe-template.md`](../tasks/recipe-template.md)
+👉 [`/projects/Assorti-AI/tasks/recipe-template.md`](../tasks/recipe-template.md)
 
 When creating or editing a recipe:  
 1. Duplicate the template from `tasks/recipe-template.md`.  

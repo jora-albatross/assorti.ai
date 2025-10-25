@@ -160,11 +160,11 @@ Cloudflare Pages всё равно делает свой билд, но лока
 
 # 6) Где работать нам (контент, монетизация, ТГ)
     Контент — в src/content/recipes/… по шаблону (у тебя уже есть).
-    Лонгриды/доки — в projects/Assorti AI/docs/….
-    Маркетинг/дистрибуция — через projects/Assorti AI/agents/0002-marketer.md (мы уже заложили основы и tasklists).
+    Лонгриды/доки — в projects/Assorti-AI/docs/….
+    Маркетинг/дистрибуция — через projects/Assorti-AI/agents/0002-marketer.md (мы уже заложили основы и tasklists).
 
 # Summary
-Implement the first version of the Assorti.ai frontend according to `projects/Assorti AI/docs/tech-spec.md`.
+Implement the first version of the Assorti.ai frontend according to `projects/Assorti-AI/docs/tech-spec.md`.
 This issue covers the full scope: layout, hero, cards, recipes grid, recipe details, static pages, SEO/OG, and PWA.
 All work must be delivered via Pull Requests to `main`. Each PR should include screenshots (desktop + mobile) and Lighthouse (mobile) scores.
 
@@ -222,7 +222,7 @@ Summary: Build Hero component and global layout structure.
 
 assorti.ai/  
 │
-├── projects/Assorti AI/         # твоя бизнес-архитектура, агенты, таски, доки
+├── projects/Assorti-AI/         # твоя бизнес-архитектура, агенты, таски, доки
 │
 ├── src/                         # Astro проект
 │
@@ -235,7 +235,7 @@ assorti.ai/
         └── config.yml           # (опционально, для кастомизации меню)
 
 📌 Таким образом:
-    В projects/Assorti AI/ ты хранишь внутренние рабочие материалы.
+    В projects/Assorti-AI/ ты хранишь внутренние рабочие материалы.
     В .github/ISSUE_TEMPLATE/ лежат шаблоны для GitHub Issues, чтобы агент (или разработчик) мог сразу создать задачу нужного типа.
 
 <img width="834" height="411" alt="image" src="https://github.com/user-attachments/assets/c7fa4ef9-df65-4c46-a766-0d097d52f776" />
