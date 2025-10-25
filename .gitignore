@@ -39,3 +39,6 @@ coverage/
 
 # C:\Users\Serge\Documents\GitHub\assorti.ai\.gitignore
 .astro/
+
+.copilot
+---copilot
